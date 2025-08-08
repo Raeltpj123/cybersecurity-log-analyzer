@@ -1,0 +1,52 @@
+[
+  {
+    "TimeCreated": "2025-01-15T10:23:45.123Z",
+    "Computer": "DC01",
+    "Level": "Warning",
+    "EventID": 4625,
+    "Provider": "Microsoft-Windows-Security-Auditing",
+    "Channel": "Security",
+    "ProcessId": 664,
+    "Message": "An account failed to log on. Subject: Security ID: NULL SID, Account Name: -, Account Domain: -, Logon ID: 0x0. Logon Type: 2. Account For Which Logon Failed: Security ID: NULL SID, Account Name: administrator, Account Domain: CONTOSO. Failure Information: Failure Reason: Unknown user name or bad password. Status: 0xC000006D, Sub Status: 0xC000006A. Process Information: Caller Process ID: 0x29c, Caller Process Name: C:\\Windows\\System32\\winlogon.exe. Network Information: Workstation Name: WORKSTATION01, Source Network Address: 192.168.1.100, Source Port: 0. Detailed Authentication Information: Logon Process: User32, Authentication Package: Negotiate, Transited Services: -, Package Name (NTLM only): -, Key Length: 0."
+  },
+  {
+    "TimeCreated": "2025-01-15T10:25:30.456Z",
+    "Computer": "WEB01",
+    "Level": "Error",
+    "EventID": 1000,
+    "Provider": "Application Error",
+    "Channel": "Application",
+    "ProcessId": 1234,
+    "Message": "Faulting application name: w3wp.exe, version: 10.0.17763.1, time stamp: 0x5bd728e9. Faulting module name: KERNELBASE.dll, version: 10.0.17763.1518, time stamp: 0x5e62ad8f. Exception code: 0xc0000005. Fault offset: 0x00036692. Faulting process id: 0x4d4. Faulting application start time: 0x01d6e8f5a2c7b8c0."
+  },
+  {
+    "TimeCreated": "2025-01-15T10:30:15.789Z",
+    "Computer": "DC01",
+    "Level": "Information",
+    "EventID": 4624,
+    "Provider": "Microsoft-Windows-Security-Auditing",
+    "Channel": "Security",
+    "ProcessId": 664,
+    "Message": "An account was successfully logged on. Subject: Security ID: S-1-5-18, Account Name: DC01$, Account Domain: CONTOSO, Logon ID: 0x3E7. Logon Information: Logon Type: 3, Restricted Admin Mode: -, Virtual Account: No, Elevated Token: Yes. Impersonation Level: Impersonation. New Logon: Security ID: S-1-5-21-1234567890-1234567890-1234567890-1001, Account Name: john.doe, Account Domain: CONTOSO, Logon ID: 0x12345, Linked Logon ID: 0x0, Network Account Name: -, Network Account Domain: -, Logon GUID: {12345678-1234-1234-1234-123456789012}. Process Information: Process ID: 0x0, Process Name: -. Network Information: Workstation Name: -, Source Network Address: 192.168.1.50, Source Port: 49152."
+  },
+  {
+    "TimeCreated": "2025-01-15T10:35:22.012Z",
+    "Computer": "FILE01",
+    "Level": "Warning",
+    "EventID": 5156,
+    "Provider": "Microsoft-Windows-Security-Auditing",
+    "Channel": "Security",
+    "ProcessId": 4,
+    "Message": "The Windows Filtering Platform has permitted a connection. Application Information: Process ID: 4444, Application Name: \\device\\harddiskvolume2\\windows\\system32\\svchost.exe. Network Information: Direction: Outbound, Source Address: 192.168.1.10, Source Port: 49153, Destination Address: 203.0.113.50, Destination Port: 4444, Protocol: 6. Filter Information: Filter Run-Time ID: 12345, Layer Name: Connect, Layer Run-Time ID: 48."
+  },
+  {
+    "TimeCreated": "2025-01-15T10:40:45.333Z",
+    "Computer": "MAIL01",
+    "Level": "Error",
+    "EventID": 1001,
+    "Provider": "Windows Error Reporting",
+    "Channel": "Application",
+    "ProcessId": 2468,
+    "Message": "Fault bucket 123456789012345678, type 1. Event Name: APPCRASH. Response: Not available. Cab Id: 0. Problem signature: P1: outlook.exe, P2: 16.0.12345.67890, P3: 5e62ad8f, P4: mso.dll, P5: 16.0.12345.67890, P6: 5e62ad8f, P7: c0000005, P8: 00123456, P9: , P10: . Attached files: C:\\Users\\user\\AppData\\Local\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_outlook.exe_123456789012345678\\Report.wer C:\\Users\\user\\AppData\\Local\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_outlook.exe_123456789012345678\\memory.hdmp"
+  }
+]
