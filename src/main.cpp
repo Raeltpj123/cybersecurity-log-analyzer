@@ -21,12 +21,6 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#ifdef _WIN32
-    // Use Windows-specific includes for option parsing
-    #include <windows.h>
-#else
-    #include <getopt.h>
-#endif
 #include "Common.h"
 #include "core/LogParser.h"
 #include "core/OllamaClient.h"
@@ -79,52 +73,41 @@ void printUsage(const char* programName) {
 Config parseArguments(int argc, char* argv[]) {
     Config config;
     
-    const struct option longOptions[] = {
-        {"input", required_argument, 0, 'i'},
-        {"output", required_argument, 0, 'o'},
-        {"format", required_argument, 0, 'f'},
-        {"model", required_argument, 0, 'm'},
-        {"url", required_argument, 0, 'u'},
-        {"prompt", required_argument, 0, 'p'},
-        {"test-mode", no_argument, 0, 't'},
-        {"verbose", no_argument, 0, 'v'},
-        {"help", no_argument, 0, 'h'},
-        {0, 0, 0, 0}
-    };
-    
-    int option;
-    int optionIndex = 0;
-    
-    while ((option = getopt_long(argc, argv, "i:o:f:m:u:p:tvh", longOptions, &optionIndex)) != -1) {
-        switch (option) {
-            case 'i':
-                config.inputFile = SecurityUtils::sanitizeFilePath(optarg);
-                break;
-            case 'o':
-                config.outputFile = SecurityUtils::sanitizeFilePath(optarg);
-                break;
-            case 'f':
-                config.format = Utils::stringToFormat(optarg);
-                break;
-            case 'm':
-                config.ollamaModel = SecurityUtils::sanitizeInput(optarg);
-                break;
-            case 'u':
-                config.ollamaUrl = SecurityUtils::sanitizeURL(optarg);
-                break;
-            case 'p':
-                config.customPrompt = SecurityUtils::sanitizeInput(optarg);
-                break;
-            case 't':
-                config.testMode = true;
-                break;
-            case 'v':
-                config.verbose = true;
-                break;
-            case 'h':
-            default:
-                printUsage(argv[0]);
-                exit(option == 'h' ? 0 : 1);
+    for (int i = 1; i < argc; i++) {
+        std::string arg = argv[i];
+        
+        if (arg == "-h" || arg == "--help") {
+            printUsage(argv[0]);
+            exit(0);
+        }
+        else if (arg == "-t" || arg == "--test-mode") {
+            config.testMode = true;
+        }
+        else if (arg == "-v" || arg == "--verbose") {
+            config.verbose = true;
+        }
+        else if ((arg == "-i" || arg == "--input") && i + 1 < argc) {
+            config.inputFile = SecurityUtils::sanitizeFilePath(argv[++i]);
+        }
+        else if ((arg == "-o" || arg == "--output") && i + 1 < argc) {
+            config.outputFile = SecurityUtils::sanitizeFilePath(argv[++i]);
+        }
+        else if ((arg == "-f" || arg == "--format") && i + 1 < argc) {
+            config.format = Utils::stringToFormat(argv[++i]);
+        }
+        else if ((arg == "-m" || arg == "--model") && i + 1 < argc) {
+            config.ollamaModel = SecurityUtils::sanitizeInput(argv[++i]);
+        }
+        else if ((arg == "-u" || arg == "--url") && i + 1 < argc) {
+            config.ollamaUrl = SecurityUtils::sanitizeURL(argv[++i]);
+        }
+        else if ((arg == "-p" || arg == "--prompt") && i + 1 < argc) {
+            config.customPrompt = SecurityUtils::sanitizeInput(argv[++i]);
+        }
+        else {
+            std::cerr << "Unknown option: " << arg << std::endl;
+            printUsage(argv[0]);
+            exit(1);
         }
     }
     
