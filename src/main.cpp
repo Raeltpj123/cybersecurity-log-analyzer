@@ -57,7 +57,7 @@ void printUsage(const char* programName) {
     std::cout << "  " << programName << " -i alerts.json -m mistral -p \"Focus on APT indicators\"" << std::endl;
     std::cout << "  " << programName << " -t -v  # Test mode with verbose output" << std::endl;
     std::cout << std::endl;
-    std::cout << "For more information, visit: https://github.com/raeltpj123/cybersecurity-log-analyzer" << std::endl;
+    std::cout << "For more information, visit: https://github.com/Raeltpj123/cybersecurity-log-analyzer" << std::endl;
 }
 
 /**

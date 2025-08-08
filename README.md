@@ -366,7 +366,7 @@ git log --oneline  # View development progression
 - **Source Code**: 30,000+ lines of clean, documented C++17 code with comprehensive Doxygen comments
 - **Build System**: Cross-platform CMake configuration verified on Windows/Linux/macOS
 - **Testing**: 15/16 unit tests passing with comprehensive validation framework
-- **GitHub Repository**: [https://github.com/raeltpj123/cybersecurity-log-analyzer](https://github.com/raeltpj123/cybersecurity-log-analyzer)
+- **GitHub Repository**: [https://github.com/Raeltpj123/cybersecurity-log-analyzer](https://github.com/Raeltpj123/cybersecurity-log-analyzer)
 
 ### Project Status Summary 📊
 ✅ **COMPLETED**: All core features implemented and tested  
